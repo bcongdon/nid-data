@@ -1,0 +1,15 @@
+title: National Inventory of Dams Data
+source: National Inventory of Dams
+source_url: https://nid.sec.usace.army.mil/
+description_html: |-
+  <span>Example queries:</span>
+  <ul>
+    <li><a href="/dams/Dams?STATE=40">Dams in Washington</a></li>
+    <li><a href="/dams?sql=select%0D%0A++Designer.name%2C%0D%0A++COUNT%28RECORDID%29+count%0D%0Afrom%0D%0A++Dams%0D%0A++JOIN+Designer+ON+Dams.DAM_DESIGNER+%3D+Designer.id%0D%0AGROUP+BY%0D%0A++Designer.id%0D%0AORDER+BY%0D%0A++count+DESC%3B">Designer Dam Count</a></li>
+    <li><a href="/dams/Dams?_sort=RECORDID&YEAR_COMPLETED__gte=2000&HAZARD__exact=H">High Hazard Dams completed after 2000</a></li>
+  </ul>
+plugins:
+  datasette-cluster-map:
+    latitude_column: LATITUDE
+    longitude_column: LONGITUDE
+
